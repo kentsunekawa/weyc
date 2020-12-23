@@ -50,6 +50,8 @@ const Select = Styled(CommonBtn.Wrapper.withComponent('select'))`
   padding-right: 30px;
   border: none;
   outline: none;
+  font-size: 1.6rem;
+  line-height: 1em;
 `;
 
 export default Selector;

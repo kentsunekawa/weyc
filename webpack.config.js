@@ -1,5 +1,6 @@
 const path = require('path');
 const MODE = 'production';
+// const MODE = 'development';
 
 module.exports = {
   mode: MODE,

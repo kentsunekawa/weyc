@@ -23,6 +23,9 @@ const DateInput: React.FC<PropTypes> = ({ date, onChange, min, max }) => {
 
 export const Root = Styled(InputBox.Root)``;
 
-export const Input = Styled(InputBox.Input)``;
+export const Input = Styled(InputBox.Input)`
+  font-size: 1.6rem;
+  height: 100%;
+`;
 
 export default DateInput;

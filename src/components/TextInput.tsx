@@ -22,6 +22,9 @@ const TextInput: React.FC<PropTypes> = ({ text, onChange, placeholder }) => {
 
 export const Root = Styled(InputBox.Root)``;
 
-export const Input = Styled(InputBox.Input)``;
+export const Input = Styled(InputBox.Input)`
+  font-size: 1.6rem;
+  height: 100%;
+`;
 
 export default TextInput;

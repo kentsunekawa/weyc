@@ -23,7 +23,7 @@ const ErrorMsg: React.FC<PropsType> = ({ isError, msg, children }) => {
 }
 
 const Root = Styled.div<{ isError: boolean; }>`
-  border: ${({ isError }) => (isError ? "1px solid #f00" : "none")};
+  /* border: ${({ isError }) => (isError ? "1px solid #f00" : "none")}; */
 `;
 
 const Msg = Styled.p`
