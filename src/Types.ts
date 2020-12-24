@@ -1,8 +1,11 @@
-import ConnectFirebase from './ConnectFirebase';
-
 export interface RootState {
+  app: AppState;
   todo: TodoState;
   user: UserState;
+};
+
+export interface AppState {
+  isLoading: boolean;
 };
 
 export interface TodoState {

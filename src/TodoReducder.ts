@@ -4,7 +4,7 @@ import * as Actions from './Actions';
 
 const initState: Types.TodoState = {
   isLoaded: false,
-  maxDisplayNum: 10,
+  maxDisplayNum: 3,
   queryData: {
     sortKey: 'asc',
     start: '',

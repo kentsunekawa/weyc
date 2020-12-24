@@ -6,20 +6,19 @@ import { login } from '../Actions';
 import * as Types from '../Types';
 import { checkIsLogin, changeLoadingStatus } from '../Actions';
 
+// component
 import Btn from '../components/Btn';
-import Card from '../components/Card';
-import Loading from '../components/Loading';
+// import Loading from '../components/Loading';
 
 const Login: React.FC = () => {
 
+  const history = useHistory();
   const isInitialRander = useRef(true);
 
   const dispatch = useDispatch();
-  // const FireBase = useSelector((state: Types.RootState) => state.user.FireBase);
-  const history = useHistory();
 
   const user = useSelector((state: Types.RootState) => state.user.user);
-  const isLoading = useSelector((state: Types.RootState) => state.user.isLoading);
+  // const isLoading = useSelector((state: Types.RootState) => state.user.isLoading);
 
 
   const clickLoginBtnFunc = () => {
@@ -40,11 +39,11 @@ const Login: React.FC = () => {
   });
 
   return <Wrapper>
-    {(() => {
+    {/* {(() => {
       if (isLoading) {
         return <Loading />;
       }
-    })()}
+    })()} */}
     <BtnWrapper>
       <Btn onClick={clickLoginBtnFunc}>Google アカウントでログインする</Btn>
     </BtnWrapper>

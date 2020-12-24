@@ -47,8 +47,11 @@ export const logout = () => {
 
 export const requestTodosData = () => {
   return (dispatch, getState) => {
+    console.log('requestTodosData');
+
     FireBase.requestTodosData()
       .then((data: any) => {
+        dispatch(changeLoadingStatus(false));
         dispatch(setTodos(data));
         dispatch(changeIsLoaded());
       })
@@ -78,7 +81,6 @@ export const deleteTodo = (id: string) => {
 
 export const addTodo = (todoData: Types.Todo) => {
   return (dispatch) => {
-
     FireBase.addTodo(todoData)
       .then(() => {
         dispatch(requestTodosData());
@@ -88,6 +90,7 @@ export const addTodo = (todoData: Types.Todo) => {
 
 export const updateTodo = (todoData: Types.Todo) => {
   return (dispatch) => {
+    dispatch(changeLoadingStatus(true));
     FireBase.updateTodo(todoData)
       .then(() => {
         dispatch(requestTodosData());

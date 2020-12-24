@@ -1,10 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Styled from 'styled-components';
+import * as Types from '../Types';
 
 const Loading: React.FC = () => {
-  return <Root>
-    Loading...
+
+  const isLoading = useSelector((state: Types.RootState) => state.app.isLoading);
+
+  if (isLoading) {
+    return <Root>
+      Loading...
   </Root>;
+  } else {
+    return null;
+  }
+
+
 }
 
 const Root = Styled.div`

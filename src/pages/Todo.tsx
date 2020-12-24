@@ -2,9 +2,9 @@ import * as Types from '../Types';
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Styled from 'styled-components';
-import { requestTodosData } from '../Actions';
+import { requestTodosData, changeLoadingStatus } from '../Actions';
+
 // components
-import Card from '../components/Card';
 import TodoList from '../components/TodoList';
 import AddTodo from '../components/AddTodo';
 import SearchNav from '../components/SearchNav';
@@ -17,6 +17,7 @@ const Todo: React.FC = () => {
 
   useEffect(() => {
     dispatch(requestTodosData());
+    console.log('aaaaaaaaaaa');
   });
 
   return <Wrapper>

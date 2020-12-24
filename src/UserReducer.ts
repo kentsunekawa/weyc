@@ -29,11 +29,11 @@ const UserReducder = (state: Types.UserState = initState, action: ActionsType) =
         ...state,
         user: action.userInfo
       };
-    case ActionTypes.ChangeLoadingStatus:
-      return {
-        ...state,
-        isLoading: action.isLoading
-      }
+    // case ActionTypes.ChangeLoadingStatus:
+    //   return {
+    //     ...state,
+    //     isLoading: action.isLoading
+    //   }
     default:
       return state;
   }

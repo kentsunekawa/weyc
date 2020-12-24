@@ -1,5 +1,6 @@
 import * as Types from './Types';
 import React from "react";
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Styled from 'styled-components';
 import { PATH } from './_definition';
@@ -12,12 +13,14 @@ import Todo from './pages/Todo';
 import GlobalStyle from './style/GlobalStyle';
 import Auth from './components/Auth';
 import Nav from './components/Nav';
+import Loading from './components/Loading';
 
 // import Loading from './components/Loading';
 
 const App: React.FC = () => {
 
   return <BrowserRouter>
+    <Loading />
     <Nav />
     <Switch>
       <Route path={PATH.login} component={Login} />

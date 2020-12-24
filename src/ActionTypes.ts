@@ -1,3 +1,6 @@
+// app
+export const ChangeIsLoading = 'ChangeIsLoading' as const;
+
 // todo
 export const ChangeIsLoaded = 'ChangeIsLoaded' as const;
 export const SetTodos = 'SetTodos' as const;

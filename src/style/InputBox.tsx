@@ -15,4 +15,5 @@ export const Input = Styled.input`
   height: 100%;
   line-height: 2.4em;
   padding: 0 1em;
+  font-size: 1.6rem;
 `;

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addTodo } from '../Actions';
 import Styled from 'styled-components';
 import { Lib } from '../_definition';
+import { changeLoadingStatus } from '../Actions';
 
 // components
 import TextInput from './TextInput';
@@ -38,6 +39,7 @@ const AddTodo: React.FC<PropsType> = ({ }) => {
 
   const addBtnClick = () => {
     if (name != '' && limit != '') {
+      dispatch(changeLoadingStatus(true));
       dispatch(addTodo({
         id: '',
         name,

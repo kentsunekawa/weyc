@@ -1,19 +1,19 @@
 export const MAX_DISPLAY_NUMS = [
   {
-    label: '10件まで表示',
-    value: 10,
+    label: '3件まで表示',
+    value: 3,
   },
   {
-    label: '25件まで表示',
-    value: 25
+    label: '5件まで表示',
+    value: 5
+  },
+  {
+    label: '10件まで表示',
+    value: 10
   },
   {
     label: '50件まで表示',
     value: 50
-  },
-  {
-    label: '100件まで表示',
-    value: 100
   }
 ];
 

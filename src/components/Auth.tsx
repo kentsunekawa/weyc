@@ -20,9 +20,13 @@ const Auth: React.FC<PropsType> = ({ children, history }) => {
     }
   });
 
-  return <>
-    {children}
-  </>;
+  if (user === null) {
+    return null;
+  } else {
+    return <>
+      {children}
+    </>;
+  }
 };
 
 export default withRouter(Auth);

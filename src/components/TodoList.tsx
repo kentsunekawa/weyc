@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Styled from 'styled-components';
 import TodoCard from './TodoCard';
-import { requestTodosData } from '../Actions';
+import { requestTodosData, changeIsLoaded, changeLoadingStatus } from '../Actions';
 
 type PropTypes = {
 
@@ -17,6 +17,7 @@ const TodoList: React.FC<PropTypes> = ({ }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('hhhhhhhhhhhhhhhhhh');
     if (isInitialRender.current) {
       isInitialRender.current = false;
       dispatch(requestTodosData());

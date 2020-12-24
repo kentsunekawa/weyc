@@ -21,6 +21,7 @@ const TodoCard: React.FC<PropTypes> = ({ id, limit, name, isDone }) => {
 
   const toggleEditModal = () => {
     editingId === '' ? setEditingId(id) : setEditingId('');
+
   }
 
   const deleteBtnClick = () => {
@@ -68,11 +69,14 @@ const Root = Styled.div`
   display: block;
   width: 100%;
   position: relative;
-  background: #fff;
+  
 `;
 
 const Inner = Styled.div<InnerProps>`
-  opacity: ${({ isDisabled }) => (isDisabled ? .5 : 1)};
+  opacity: ${({ isDisabled }) => (isDisabled ? .7 : 1)};
+  box-shadow: ${({ isDisabled }) => (isDisabled ? 'none' : '0px 0px 14px -3px rgba(0,0,0,0.34)')};
+  transform: ${({ isDisabled }) => (isDisabled ? 'translateX(20px)' : 'none')};
+  background: #fff;
 `;
 
 const Btn = Styled.div`
@@ -81,7 +85,6 @@ const Btn = Styled.div`
   /* border: 1px solid #ddd; */
   padding: 10px;
   border-radius: 3px;
-  box-shadow: 0px 0px 14px -3px rgba(0,0,0,0.34);
 `;
 
 const DleteBtnWrapper = Styled.div`
