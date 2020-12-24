@@ -26,6 +26,8 @@ export const Root = Styled(InputBox.Root)``;
 export const Input = Styled(InputBox.Input)`
   font-size: 1.6rem;
   height: 100%;
+  width: 100%;
+  display: block;
 `;
 
 export default DateInput;

@@ -12,6 +12,7 @@ export const Root = Styled.div`
 export const Input = Styled.input`
   display: block;
   width: 100%;
+  height: 100%;
   line-height: 2.4em;
   padding: 0 1em;
 `;

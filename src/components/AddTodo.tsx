@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../Actions';
 import Styled from 'styled-components';
+import { Lib } from '../_definition';
 
 // components
 import TextInput from './TextInput';
-import DateInput, { Root } from './DateInput';
+import DateInput from './DateInput';
 import Btn, { Button } from './Btn';
 import ErrorMsg from './ErrorMsg';
 
@@ -14,7 +15,7 @@ interface PropsType { }
 const AddTodo: React.FC<PropsType> = ({ }) => {
 
   const [name, setName] = useState('');
-  const [limit, setLimit] = useState('');
+  const [limit, setLimit] = useState(Lib.formatDate(new Date()));
   const [isError, setIsError] = useState({ name: false, limit: false });
 
   const nameChangeEvent = (text) => {

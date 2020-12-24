@@ -10,9 +10,6 @@ import Btn, { Button } from '../components/Btn';
 const Nav: React.FC = () => {
 
   const displayName = useSelector((state: Types.RootState) => state.user.user?.displayName);
-  console.log('----------------');
-  console.log(displayName);
-  console.log('----------------');
 
   const dispatch = useDispatch();
 
