@@ -47,7 +47,7 @@ const AddTodo: React.FC<PropsType> = ({ }) => {
         limit,
       }));
       setName('');
-      setLimit('');
+      setLimit(Lib.formatDate(new Date()));
     } else {
       setIsError({
         name: name != '' ? false : true,

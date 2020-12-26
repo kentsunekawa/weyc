@@ -1,15 +1,21 @@
 import * as Types from '../Types';
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import Styled from 'styled-components';
-import { requestTodosData, changeLoadingStatus } from '../Actions';
+import { requestTodosData } from '../Actions';
+
 
 // components
 import TodoList from '../components/TodoList';
 import AddTodo from '../components/AddTodo';
 import SearchNav from '../components/SearchNav';
+import Pagenation from '../components/Pagenation';
 
 const Todo: React.FC = () => {
+
+  interface ParamsTyps { page: string };
+  const { page }: ParamsTyps = useParams();
 
   const isLoaded = useSelector((state: Types.RootState) => state.todo.isLoaded);
 
@@ -17,7 +23,6 @@ const Todo: React.FC = () => {
 
   useEffect(() => {
     dispatch(requestTodosData());
-    console.log('aaaaaaaaaaa');
   });
 
   return <Wrapper>
@@ -25,9 +30,10 @@ const Todo: React.FC = () => {
       <AddTodo />
     </BottomFixedBox>
     <SearchNav />
+    <Pagenation currentPage={Number(page)} />
     {(() => {
       if (isLoaded) {
-        return <TodoList />;
+        return <TodoList currentPage={Number(page)} />;
       } else {
         return <Msg>Loading...</Msg>;
       }

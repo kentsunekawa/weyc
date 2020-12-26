@@ -14,8 +14,8 @@ const DeleteBtn: React.FC<PropsType> = ({ clickFunc }) => {
 
 const Root = Styled.button`
   display: block;
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
   background: #333;
   border-radius: 50%;
   overflow: hidden;

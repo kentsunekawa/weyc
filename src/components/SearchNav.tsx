@@ -141,7 +141,7 @@ const SearchNav: React.FC = () => {
 }
 
 const Root = Styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   padding-bottom: 20px;
   border-bottom: 1px dotted #000;
 `;

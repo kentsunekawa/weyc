@@ -47,8 +47,6 @@ export const logout = () => {
 
 export const requestTodosData = () => {
   return (dispatch, getState) => {
-    console.log('requestTodosData');
-
     FireBase.requestTodosData()
       .then((data: any) => {
         dispatch(changeLoadingStatus(false));

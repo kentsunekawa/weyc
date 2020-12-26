@@ -18,16 +18,13 @@ import Loading from './components/Loading';
 // import Loading from './components/Loading';
 
 const App: React.FC = () => {
-
   return <BrowserRouter>
     <Loading />
     <Nav />
     <Switch>
       <Route path={PATH.login} component={Login} />
       <Auth>
-        <Switch>
-          <Route exact path={PATH.root} component={Todo} />
-        </Switch>
+        <Route path={`${PATH.todo}/:page`} component={Todo} />
       </Auth>
     </Switch>
     <GlobalStyle />

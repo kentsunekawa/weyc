@@ -27,7 +27,7 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (user !== null) {
-      history.push('/');
+      history.push('/todo/1');
     } else {
       if (isInitialRander.current) {
         isInitialRander.current = false;

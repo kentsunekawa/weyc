@@ -7,17 +7,16 @@ import TodoCard from './TodoCard';
 import { requestTodosData, changeIsLoaded, changeLoadingStatus } from '../Actions';
 
 type PropTypes = {
-
+  currentPage: number;
 }
 
-const TodoList: React.FC<PropTypes> = ({ }) => {
+const TodoList: React.FC<PropTypes> = ({ currentPage }) => {
 
   const isInitialRender = useRef(true);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('hhhhhhhhhhhhhhhhhh');
     if (isInitialRender.current) {
       isInitialRender.current = false;
       dispatch(requestTodosData());
@@ -36,21 +35,28 @@ const TodoList: React.FC<PropTypes> = ({ }) => {
       if (totalDisplayNum >= maxDisplayNum) {
         break;
       }
-      const currentTodo = sortedTodos[i];
-      if (!queryData.isShowDoneTodo && currentTodo.isDone) {
-        continue;
+      if (maxDisplayNum * (currentPage - 1) <= i) {
+        // i < maxDisplayNum * currentPage
+
+        if (totalDisplayNum >= maxDisplayNum) {
+          break;
+        }
+        const currentTodo = sortedTodos[i];
+        if (!queryData.isShowDoneTodo && currentTodo.isDone) {
+          continue;
+        }
+        if (queryData.keyword !== '' && !_.includes(currentTodo.name, queryData.keyword)) {
+          continue;
+        }
+        if (queryData.start !== '' && (new Date(currentTodo.limit).getTime() < new Date(queryData.start).getTime())) {
+          continue;
+        }
+        if (queryData.end !== '' && (new Date(queryData.end).getTime() < new Date(currentTodo.limit).getTime())) {
+          continue;
+        }
+        totalDisplayNum++;
+        TodoCards.push(<Item key={totalDisplayNum}><TodoCard {...currentTodo} /></Item>);
       }
-      if (queryData.keyword !== '' && !_.includes(currentTodo.name, queryData.keyword)) {
-        continue;
-      }
-      if (queryData.start !== '' && (new Date(currentTodo.limit).getTime() < new Date(queryData.start).getTime())) {
-        continue;
-      }
-      if (queryData.end !== '' && (new Date(queryData.end).getTime() < new Date(currentTodo.limit).getTime())) {
-        continue;
-      }
-      totalDisplayNum++;
-      TodoCards.push(<Item key={totalDisplayNum}><TodoCard {...currentTodo} /></Item>);
     }
     if (TodoCards.length > 0) {
       return TodoCards;
